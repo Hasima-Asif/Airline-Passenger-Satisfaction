@@ -15,32 +15,58 @@ st.markdown("""
         font-family: 'Arial', sans-serif;
         color: #FFFFFF !important;
     }
-    .markdown-text-container, .stMarkdown, .stText, .stDataFrame, .stTable, .stSlider, .stSelectbox, .stButton, .stForm {
+
+    /* General form elements */
+    .markdown-text-container, .stMarkdown, .stText, .stDataFrame, .stTable,
+    .stSlider, .stSelectbox, .stButton, .stForm {
         color: #FFFFFF !important;
     }
-    .stSlider label, .stSelectbox label, .stButton>button, .stForm label {
+
+    .stSlider label, .stSelectbox label, .stForm label {
         color: #FFFFFF !important;
     }
+
     .stButton>button {
         background-color: #ffffff !important;
         color: #000000 !important;
     }
+
     .stSelectbox>div>div, .stSelectbox>div>div>ul {
         background-color: #ffffff !important;
         color: #000000 !important;
     }
+
     .stSelectbox>div>div>ul>li {
         color: #000000 !important;
     }
-    .stSlider>div>div>div {
+
+    .stNumberInput input {
         background-color: #ffffff !important;
+        color: #000000 !important;
+        border-radius: 6px;
+        padding: 5px;
+        border: 1px solid #ccc !important;
     }
+
+    /* Extra: number selection highlight */
+    .stNumberInput input::selection {
+        background: #cce0ff !important;
+        color: #000000 !important;
+    }
+
+    /* Slider number pop-up fix (the red 30/1000/3 numbers above) */
+    .stSlider > div > div > div > span {
+        color: #FF4B4B !important;
+        font-weight: bold;
+    }
+
     pre, code {
         color: #000000 !important;
         background-color: #ffffff !important;
     }
     </style>
 """, unsafe_allow_html=True)
+
 
 # Load Data
 @st.cache_data
@@ -204,7 +230,7 @@ model = RandomForestClassifier(n_estimators=100, random_state=42)
 model.fit(X_train, y_train)
 
 # User Input for Prediction
-st.markdown("<p style='color: #000000;'>Enter passenger details for prediction:</p>", unsafe_allow_html=True)
+st.markdown("<h4 style='color: #FFFFFF;'>🧾 Enter Passenger Details for Prediction</h4>", unsafe_allow_html=True)
 col1, col2 = st.columns(2)
 with col1:
     age = st.slider("Age", 0, 80, 30)  # Range based on dataset
