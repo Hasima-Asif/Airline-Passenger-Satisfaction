@@ -252,7 +252,7 @@ if st.button("Predict Satisfaction"):
     try:
         prediction = model.predict(input_data)
         satisfaction = le_dict['satisfaction'].inverse_transform(prediction)[0]
-        st.markdown(f"<p style='color: #000000;'>Predicted Satisfaction: <strong>{satisfaction}</strong></p>", unsafe_allow_html=True)
+        st.markdown(f"<p style='color: #FFFFFF;'>Predicted Satisfaction: <strong>{satisfaction}</strong></p>", unsafe_allow_html=True)
     except Exception as e:
         st.error(f"Prediction failed: {str(e)}")
 
